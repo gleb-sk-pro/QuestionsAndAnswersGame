@@ -1,0 +1,30 @@
+﻿<Page x:Class="QuestionsAndAnswersGame.Summary"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuestionsAndAnswersGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="700"
+      FontSize="22"
+      Title="Summary">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="summaryContent" AcceptsReturn="True" Grid.Row="1" Grid.Column="1" IsReadOnly="True" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+         ScrollViewer.VerticalScrollBarVisibility="Auto">Example summary</TextBox>
+        <Button Grid.Row="2" Grid.Column="1" Click="Button_Click" >Close</Button>
+    </Grid>
+</Page>

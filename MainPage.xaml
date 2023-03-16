@@ -1,0 +1,78 @@
+﻿<Page x:Class="QuestionsAndAnswersGame.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuestionsAndAnswersGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="700"
+      FontSize="22"
+      Title="Page1">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Category" Margin="5" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Difficulty" Margin="5" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Type" Margin="5" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="Number of questions (max 50)" Margin="5" VerticalAlignment="Center" />
+
+        <ComboBox x:Name="categoryBox"  Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Top">
+            <ComboBoxItem Tag="any" Content="Random Category"/>
+            <ComboBoxItem Tag="9" Content="General Knowledge"/>
+            <ComboBoxItem Tag="10" Content="Entertainment: Books"/>
+            <ComboBoxItem Tag="11" Content="Entertainment: Film"/>
+            <ComboBoxItem Tag="12" Content="Entertainment: Music"/>
+            <ComboBoxItem Tag="13" Content="Entertainment: Musicals and Theatres"/>
+            <ComboBoxItem Tag="14" Content="Entertainment: Television"/>
+            <ComboBoxItem Tag="15" Content="Entertainment: Video Games"/>
+            <ComboBoxItem Tag="16" Content="Entertainment: Board Games"/>
+            <ComboBoxItem Tag="17" Content="Science and Nature"/>
+            <ComboBoxItem Tag="18" Content="Science: Computers"/>
+            <ComboBoxItem Tag="19" Content="Science: Mathematics"/>
+            <ComboBoxItem Tag="20" Content="Mythology"/>
+            <ComboBoxItem Tag="21" Content="Sports"/>
+            <ComboBoxItem Tag="22" Content="Geography"/>
+            <ComboBoxItem Tag="23" Content="History"/>
+            <ComboBoxItem Tag="24" Content="Politics"/>
+            <ComboBoxItem Tag="25" Content="Art"/>
+            <ComboBoxItem Tag="26" Content="Celebrities"/>
+            <ComboBoxItem Tag="27" Content="Animals"/>
+            <ComboBoxItem Tag="28" Content="Vehicles"/>
+            <ComboBoxItem Tag="29" Content="Entertainment: Comics"/>
+            <ComboBoxItem Tag="30" Content="Science: Gadgets"/>
+            <ComboBoxItem Tag="31" Content="Entertainment: Japanese Anime and Manga"/>
+            <ComboBoxItem Tag="32" Content="Entertainment: Cartoon and Animations"/>
+        </ComboBox>
+
+        <ComboBox x:Name="difficultyBox" Grid.Row="1" Grid.Column="2" Margin="5" VerticalAlignment="Top">
+            <ComboBoxItem Tag="any" Content="Random Difficulty"/>
+            <ComboBoxItem Tag="easy" Content="Easy"/>
+            <ComboBoxItem Tag="medium" Content="Medium"/>
+            <ComboBoxItem Tag="hard" Content="Hard"/>
+        </ComboBox>
+
+        <ComboBox x:Name="typeBox" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Top">
+            <ComboBoxItem Tag="any" Content="Random Type" />
+            <ComboBoxItem Tag="multiple" Content="Multiple Choice" />
+            <ComboBoxItem Tag="boolean" Content="True / False" />
+        </ComboBox>
+        <TextBox x:Name="numberField" Grid.Row="3" Grid.Column="2" PreviewTextInput="NumberValidation" Margin="5"></TextBox>
+
+        <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Click="singleGame" Margin="5">Single player</Button>
+    </Grid>
+</Page>
