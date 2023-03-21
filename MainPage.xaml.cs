@@ -22,7 +22,10 @@ namespace QuestionsAndAnswersGame
             typeBox.SelectedIndex = 0;
             numberField.Text = "10";
         }
-
+        private void stats(object sender, RoutedEventArgs e) {
+            Ranking rankingWindow = new Ranking();
+            rankingWindow.Show();
+        }
         private async void singleGame(object sender, RoutedEventArgs e)
         {
             var window = (MainWindow)Application.Current.MainWindow;

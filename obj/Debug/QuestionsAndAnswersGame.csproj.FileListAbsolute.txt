@@ -16,11 +16,15 @@ C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\bin\Debug\Newtonsoft.Json.dll
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\bin\Debug\Newtonsoft.Json.xml
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\QuestionsAndAnswersGame.csproj.CopyComplete
-C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\Window1.g.cs
-C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\Window1.baml
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\MainPage.g.cs
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\SurveyPage.g.cs
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\SummaryPage.g.cs
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\MainPage.baml
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\SurveyPage.baml
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\SummaryPage.baml
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\Ranking.g.cs
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\Ranking.baml
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\RegisterWindow.g.cs
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\StartupWindow.g.cs
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\RegisterWindow.baml
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Debug\StartupWindow.baml

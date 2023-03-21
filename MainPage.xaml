@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
@@ -73,6 +74,7 @@
         </ComboBox>
         <TextBox x:Name="numberField" Grid.Row="3" Grid.Column="2" PreviewTextInput="NumberValidation" Margin="5"></TextBox>
 
-        <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Click="singleGame" Margin="5">Single player</Button>
+        <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Click="stats" Margin="5">Ranking</Button>
+        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Click="singleGame" Margin="5">Single player</Button>
     </Grid>
 </Page>

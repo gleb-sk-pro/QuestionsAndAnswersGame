@@ -46,7 +46,7 @@ namespace QuestionsAndAnswersGame {
                     }
                     catch (Exception e) {
                         Console.WriteLine("Please check if Microsoft Access is closed");
-                        Console.WriteLine("Exception: "+e);
+                        Console.WriteLine("Exception: " + e);
                     }
                 }
             }
@@ -90,43 +90,108 @@ namespace QuestionsAndAnswersGame {
                 }
             }
         }
-        public void DeleteData(int id) {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-                string sql = "DELETE FROM Stats WHERE ID = @ID";
-
-                using (OleDbCommand command = new OleDbCommand(sql, connection)) {
-                    command.Parameters.AddWithValue("@ID", id);
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
-        public void ResetDatabase() {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-
-                // Drop the existing table
-                string dropTableSql = "DROP TABLE Stats";
-                using (OleDbCommand dropTableCommand = new OleDbCommand(dropTableSql, connection)) {
-                    dropTableCommand.ExecuteNonQuery();
-                }
-
-                // Recreate the table with the correct schema
-                string createTableSql = "CREATE TABLE Stats (ID AUTOINCREMENT, Nickname TEXT, Rating INT, Games INT, LastPlayed DATETIME)";
-                using (OleDbCommand createTableCommand = new OleDbCommand(createTableSql, connection)) {
-                    createTableCommand.ExecuteNonQuery();
-                }
-            }
-        }
 
         public void printData() {
             List<PlayerData> playerDataList = ReadData();
 
             foreach (PlayerData playerData in playerDataList) {
-                Console.WriteLine($"ID: {playerData.ID} | Nickname: {playerData.Nickname} | Rating: {playerData.Rating} | Games: {playerData.Games} | LastPlayed: {playerData.LastPlayed.ToString("dd/MM/yyyy")}");
+                Console.WriteLine($"ID: {playerData.ID} | Nickname: {playerData.Nickname} | Rating: {playerData.Rating} | Games: {playerData.Games} ");
             }
         }
-    }
 
+        public bool Contains(string type, string value) {
+            List<PlayerData> lastGameData = ReadData();
+            foreach (PlayerData PlayerData in lastGameData) {
+                if (type == "ID" && PlayerData.ID.ToString() == value) { return true; }
+                if (type == "Nickname" && PlayerData.Nickname.ToString() == value) { return true; }
+                if (type == "Rating" && PlayerData.Rating.ToString() == value) { return true; }
+                if (type == "Games" && PlayerData.Games.ToString() == value) { return true; }
+            }
+            return false;
+        }
+        public int returnID(string type, string value) {
+            List<PlayerData> lastGameData = ReadData();
+            foreach (PlayerData PlayerData in lastGameData) {
+                if (type == "Nickname" && PlayerData.Nickname.ToString() == value) { return PlayerData.ID; }
+            }
+            return -1;
+        }
+        public OleDbDataAdapter GetDataAdapter() {
+            OleDbDataAdapter adapter = new OleDbDataAdapter();
+            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                connection.Open();
+                string sql = "SELECT * FROM Stats";
+                adapter.SelectCommand = new OleDbCommand(sql, connection);
+            }
+            return adapter;
+        }
+
+        public int ReadLastID() {
+            int lastID = 0;
+            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                connection.Open();
+
+                string sql = "SELECT TOP 1 ID FROM Stats ORDER BY ID DESC";
+
+                using (OleDbCommand command = new OleDbCommand(sql, connection)) {
+                    try {
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value) {
+                            lastID = (int)result;
+                        }
+                    }
+                    catch (Exception e) {
+                        Console.WriteLine("Please check if Microsoft Access is closed");
+                        Console.WriteLine("Exception: " + e);
+                    }
+                }
+            }
+
+            return lastID;
+        }
+        public void modifyRanking(int id, string type, int newValue) {
+            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                connection.Open();
+
+                string sql = "UPDATE Stats " +
+                             "SET " + type + " = @" + type +
+                             " WHERE ID = @ID";
+
+                using (OleDbCommand command = new OleDbCommand(sql, connection)) {
+                    switch (type) {
+                        case "Rating":
+                            command.Parameters.AddWithValue("@Rating", newValue);
+                            break;
+                        case "Games":
+                            command.Parameters.AddWithValue("@Games", newValue);
+                            break;
+                    }
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        public int GetCurrentRanking(int id, string type) {
+            int currentRating = 0;
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                connection.Open();
+
+                string sql = "SELECT " + type + " FROM Stats WHERE ID = @ID";
+
+                using (OleDbCommand command = new OleDbCommand(sql, connection)) {
+                    command.Parameters.AddWithValue("@ID", id);
+                    object result = command.ExecuteScalar();
+                    if (result != null && result != DBNull.Value) {
+                        currentRating = (int)result;
+                    }
+                }
+            }
+
+            return currentRating;
+        }
+
+    }
 }
+

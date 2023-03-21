@@ -25,7 +25,7 @@ namespace QuestionsAndAnswersGame {
         }
         private void Button_Click(object sender, RoutedEventArgs e) {
             var window = (MainWindow)Application.Current.MainWindow;
-            // Display incorrect answers
+            // Display summary with incorrect answers
             window.Content = new Page1();
 
         }

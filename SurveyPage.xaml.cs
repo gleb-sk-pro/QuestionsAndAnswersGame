@@ -19,6 +19,7 @@ namespace QuestionsAndAnswersGame {
     /// </summary>
     public partial class Page2 : Page {
         public dynamic data;
+        public DateTime startTime, endTime;
         public List<String> answerHistory;
         public int currentQuestion = 0;
 
@@ -26,6 +27,8 @@ namespace QuestionsAndAnswersGame {
             InitializeComponent();
             answerHistory = new List<String>();
             data = parsedJSON;
+            startTime = DateTime.Now;
+
             prepareLayout();
         }
 
@@ -48,15 +51,14 @@ namespace QuestionsAndAnswersGame {
 
         public void prepareLayout() {
             // All questions answered
-            Console.WriteLine("---------------------");
-
             if (currentQuestion == data["results"].Count) {
+                endTime = DateTime.Now;
                 checkAnswers();
                 return;
             }
             updateQuestionLabel();
+            //printData();
 
-            printData();
             // True/False questions layout
             if (decodedString((string)data["results"][currentQuestion].type).Equals("boolean")) {
                 // Add answer options to 2 buttons (true/false)
@@ -71,11 +73,8 @@ namespace QuestionsAndAnswersGame {
             else {
                 List<String> answerOptions = new List<String>();
                 foreach (var i in data["results"][currentQuestion].incorrect_answers) { answerOptions.Add(decodedString((string)i)); }
-
                 answerOptions.Add(decodedString((string)data["results"][currentQuestion].correct_answer));
                 answerOptions = shuffleAnswers(answerOptions);
-                //foreach (var j in answerOptions) { Console.WriteLine(j); }
-
                 // Add answer options to all 4 buttons
                 optionA.SetValue(Grid.RowSpanProperty, 1);
                 optionB.SetValue(Grid.RowSpanProperty, 1);
@@ -87,7 +86,6 @@ namespace QuestionsAndAnswersGame {
                 optionD.Content = answerOptions[3];
             }
         }
-
 
         public static List<string> shuffleAnswers(List<string> answers) {
             List<string> shuffledAnswers = new List<string>(answers);
@@ -131,15 +129,28 @@ namespace QuestionsAndAnswersGame {
 
             for (var i = 0; i < data["results"].Count; i++) {
                 if (answerHistory[i] == getAnswer(i)) { correctCount++; }
-                else {
-                    text += getQuestion(i) + "\r\n" + "Guess: " + answerHistory[i] + "\r\n" + "Correct Answer: " + getAnswer(i) + "\r\n\r\n";
-                }
+                else { text += getQuestion(i) + "\r\nGuess: " + answerHistory[i] + "\r\nCorrect Answer: " + getAnswer(i) + "\r\n\r\n"; }
             }
             text += "\r\n";
 
-            String gameInfo = "Correct answers - " + correctCount + "\r\n" + "Incorrect answers - " + (data["results"].Count - correctCount) + "\r\n\r\n" + text;
-            Page summaryPage = new Summary(gameInfo);
+            TimeSpan duration = endTime - startTime;
+
+            Page summaryPage = new Summary($"Duration: {Math.Round(duration.TotalSeconds)} sec\r\nCorrect answers - {correctCount}\r\nIncorrect answers - {(data["results"].Count - correctCount)}\r\n\r\n{text}");
             Application.Current.MainWindow.Content = summaryPage;
+
+            var currentID = ((MainWindow)Application.Current.MainWindow).currentPlayerID;
+
+            LastGameAccess lastGameAccess = new LastGameAccess(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=QuestionnaireData.accdb;Persist Security Info=False;");
+            lastGameAccess.ModifyData(currentID,
+                new LastGameData { CorrectAnswer = correctCount, IncorrectAnswer = (data["results"].Count - correctCount), TimeTaken = (int)Math.Round(duration.TotalSeconds) });
+
+            DataAccess dataAccess = new DataAccess(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=QuestionnaireData.accdb;Persist Security Info=False;");
+            // Every correct answer gives 1 point and every incorrect answer subtracts 1 point from rating
+            var gainedRating = dataAccess.GetCurrentRanking(currentID,"Rating") + correctCount * 1 - (data["results"].Count - correctCount) * 1;
+            if (gainedRating < 0) { gainedRating = 0; }
+            dataAccess.modifyRanking(currentID,"Rating",(int)gainedRating);
+            dataAccess.modifyRanking(currentID,"Games", dataAccess.GetCurrentRanking(currentID, "Games")+1);
+
         }
     }
 

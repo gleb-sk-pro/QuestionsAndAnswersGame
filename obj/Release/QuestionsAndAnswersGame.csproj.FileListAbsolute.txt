@@ -8,7 +8,6 @@ C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\MainPage.g.cs
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\SurveyPage.g.cs
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\SummaryPage.g.cs
-C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\Window1.g.cs
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\App.g.cs
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame_MarkupCompile.cache
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame_MarkupCompile.lref
@@ -16,7 +15,6 @@ C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\MainPage.baml
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\SurveyPage.baml
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\SummaryPage.baml
-C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\Window1.baml
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame.g.resources
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame.Properties.Resources.resources
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame.csproj.GenerateResource.cache
@@ -24,3 +22,9 @@ C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame.csproj.CopyComplete
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame.exe
 C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\QuestionsAndAnswersGame.pdb
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\Ranking.g.cs
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\RegisterWindow.g.cs
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\StartupWindow.g.cs
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\Ranking.baml
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\RegisterWindow.baml
+C:\Users\glebi\source\repos\QuestionsAndAnswersGame\QuestionsAndAnswersGame\obj\Release\StartupWindow.baml
